@@ -15,9 +15,9 @@ public class ArrayDeque<T> {
     }
 
     private void checkSize() {
-        if(size == capacity) {
+        if (size == capacity) {
             capacity *= 2;
-            T[] newItems = (T[])new Object[capacity];
+            T[] newItems = (T[]) new Object[capacity];
             System.arraycopy(items, 0, newItems, 0, size);
             items = newItems;
         }
@@ -30,19 +30,25 @@ public class ArrayDeque<T> {
 
     public void addFirst(T x) {
         checkSize();
-        if (size >= 0) System.arraycopy(items, 0, items, 1, size++);
+        if (size >= 0) {
+            System.arraycopy(items, 0, items, 1, size++);
+        }
         items[0] = x;
     }
 
     //The next item we want to add, will go in to position size, and size increase by 1
-    public T getLast() {
-        if(size == 0) return null;
+    private T getLast() {
+        if (size == 0) {
+            return null;
+        }
         return items[size - 1];
     }
 
 
     public T get(int i) {
-        if(i < 0 || i >= size()) return null;
+        if (i < 0 || i >= size()) {
+            return null;
+        }
         return items[i];
     }
 
@@ -50,30 +56,38 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    public void contractCheck() {
+    private void contractCheck() {
         double rate = (double) this.size / (double) this.capacity;
-        if(rate < 0.25 && size > 16) capacity /= 2;
-        T[] newItems = (T[])new Object[capacity];
-        System.arraycopy(items, 0, newItems, 0, size);
-        items = newItems;
+        if (rate < 0.25 && size > 16) {
+            capacity /= 2;
+            T[] newItems = (T[]) new Object[capacity];
+            System.arraycopy(items, 0, newItems, 0, size);
+            items = newItems;
+        }
     }
     public T removeLast() {
-        if(size == 0) return null;
+        if (size == 0) {
+            return null;
+        }
         contractCheck();
-        return items[size--];
+        return items[--size];
     }
 
     public T removeFirst() {
-        if(size == 0) return null;
+        if (size == 0) {
+            return null;
+        }
         contractCheck();
         T res = items[0];
-        if (size >= 0) System.arraycopy(items, 1, items, 0, size--);
+        if (size >= 0) {
+            System.arraycopy(items, 1, items, 0, --size);
+        }
         return res;
     }
 
     public void printDeque() {
-        for(int i = 0; i < size; i++) {
-            System.out.print(get(i) +" ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(get(i) + " ");
         }
     }
 }
