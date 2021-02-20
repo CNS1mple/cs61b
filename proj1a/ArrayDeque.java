@@ -135,14 +135,14 @@ public class ArrayDeque<T> {
         size++;
     }
 
-    public T getLast() {
+    private T getLast() {
         if (size == 0) {
             return null;
         }
         return items[(tail - 1) % capacity];
     }
 
-    public T getFirst() {
+    private T getFirst() {
         if (size == 0) {
             return null;
         }
