@@ -32,9 +32,10 @@ public class ArrayDequeTest {
 
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
+//System.out.println("Make sure to uncomment
+// the lines below (and delete this print statement).");
 
-        ArrayDeque<String> ad1 = new ArrayDeque<String>();
+        ArrayDeque<String> ad1 = new ArrayDeque<>();
 
         boolean passed = checkEmpty(true, ad1.isEmpty());
 
@@ -63,9 +64,10 @@ public class ArrayDequeTest {
 
         System.out.println("Running add/remove test.");
 
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
+//System.out.println("Make sure to uncomment
+//the lines below (and delete this print statement).");
 
-        ArrayDeque<Integer> ad2 = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> ad2 = new ArrayDeque<>();
         // should be empty
         boolean passed = checkEmpty(true, ad2.isEmpty());
 
@@ -78,10 +80,19 @@ public class ArrayDequeTest {
         passed = checkEmpty(true, ad2.isEmpty()) && passed;
 
 
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 100; i++) {
             ad2.addLast(4);
         }
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 150; i++) {
+            ad2.removeFirst();
+        }
+        for(int i = 0; i < 200; i++) {
+            ad2.addFirst(1);
+        }
+        for(int i = 0; i < 250; i++) {
+            ad2.removeFirst();
+        }
+        for(int i = 0; i < 300; i++) {
             ad2.addFirst(1);
         }
 
