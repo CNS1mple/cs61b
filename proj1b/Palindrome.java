@@ -26,9 +26,7 @@ public class Palindrome {
 
     private boolean isPalindrome(Deque deque, CharacterComparator cc) {
         if(deque.size() < 2) return true;
-        char first = (char) deque.removeFirst();
-        char last = (char) deque.removeLast();
-        return (first == last || cc.equalChars(first, last)) ? isPalindrome(deque, cc) : false;
+        return  cc.equalChars((char) deque.removeFirst(), (char) deque.removeLast()) ? isPalindrome(deque, cc) : false;
     }
 
 }

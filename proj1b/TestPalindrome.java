@@ -27,7 +27,7 @@ public class TestPalindrome {
     public void testIsPOffByOne(){
         CharacterComparator cc = new OffByOne();
 
-        assertEquals(true, palindrome.isPalindrome("aba", cc));
+        assertEquals(false, palindrome.isPalindrome("aba", cc));
         assertEquals(true, palindrome.isPalindrome("abb", cc));
         assertEquals(false, palindrome.isPalindrome("abc", cc));
         assertEquals(true, palindrome.isPalindrome("ab", cc));
