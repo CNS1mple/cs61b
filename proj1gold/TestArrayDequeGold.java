@@ -10,21 +10,25 @@ public class TestArrayDequeGold {
         String message = new String();
         for (int i = 0; i < 100; i += 1) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
-            if (numberBetweenZeroAndOne < 0.5) {
+            if (numberBetweenZeroAndOne < 0.3) {
                 sad.addLast(i);
                 ads.addLast(i);
-                assertEquals(message += "addLast(" + i + ")\n", sad.get(i), ads.get(i));
+                assertEquals(message += "addLast(" + i + ")\n", ads.get(ads.size() - 1), sad.get(sad.size() - 1));
+            } else if(numberBetweenZeroAndOne < 0.5) {
+                assertEquals(message += "removeLast()\n", ads.removeLast(), sad.removeLast());
+            } else if(numberBetweenZeroAndOne < 0.7) {
+                assertEquals(message += "removeFirst()\n", ads.removeFirst(), sad.removeFirst());
             } else {
                 sad.addFirst(i);
                 ads.addFirst(i);
-                assertEquals(message += "addFirst(" + i +")\n", sad.get(0), ads.get(0));
+                assertEquals(message += "addFirst(" + i +")\n", ads.get(ads.size() - 1), sad.get(sad.size() - 1));
             }
         }
 
-        for(int i = 0; i < 100; i++) {
-            assertEquals(message += "removeLast()\n", ads.removeLast(), sad.removeLast());
-            assertEquals(message += "remobeFirst()\n", ads.removeFirst(), sad.removeFirst());
-        }
+//        for(int i = 0; i < 100; i++) {
+//
+////            assertEquals(message += "remobeFirst()\n", ads.removeFirst(), sad.removeFirst());
+//        }
 
 
     }
