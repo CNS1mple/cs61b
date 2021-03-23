@@ -24,13 +24,6 @@ public class TestArrayDequeGold {
                 assertEquals(message += "addFirst(" + i +")\n", ads.get(ads.size() - 1), sad.get(sad.size() - 1));
             }
         }
-
-//        for(int i = 0; i < 100; i++) {
-//
-////            assertEquals(message += "remobeFirst()\n", ads.removeFirst(), sad.removeFirst());
-//        }
-
-
     }
 
 }
