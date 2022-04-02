@@ -11,7 +11,9 @@ public class PercolationStats {
 
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials, PercolationFactory pf)  {
-        if (n <= 0 || trials <= 0) { throw new IllegalArgumentException(""); }
+        if (n <= 0 || trials <= 0) {
+            throw new IllegalArgumentException("");
+        }
         this.trials = trials;
         prob = new double[trials];
         // std_array = new double[trials];
@@ -20,8 +22,8 @@ public class PercolationStats {
             while (!p.percolates()) {
                 int row, col;
                 do {
-                    row = StdRandom.uniform(n) + 1;
-                    col = StdRandom.uniform(n) + 1;
+                    row = StdRandom.uniform(n);
+                    col = StdRandom.uniform(n);
                 } while (p.isOpen(row, col));
                 p.open(row, col);
             }
