@@ -1,3 +1,4 @@
+
 public class LinkedListDeque<T> implements Deque<T>{
     private class Node {
         public Node() {}
@@ -7,7 +8,6 @@ public class LinkedListDeque<T> implements Deque<T>{
 
     private int size = 0;
     private Node sentinel = new Node();
-    private Node ptr = sentinel.next;
     public LinkedListDeque() {
         sentinel.next = sentinel;
         sentinel.prev = sentinel;

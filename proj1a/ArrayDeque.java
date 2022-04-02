@@ -94,7 +94,7 @@
 public class ArrayDeque<T> implements Deque<T>{
     private int size, capacity = 8;
     private T[] items;
-    private int head = capacity - 1, tail = 0;
+    private int head = capacity - 1, tail = 0; // 注意head和tail初始化
 
     public ArrayDeque() {
         items = (T[]) new Object[capacity];
@@ -118,6 +118,7 @@ public class ArrayDeque<T> implements Deque<T>{
             newItems[i] = this.get(i);
         }
         capacity *= 2;
+        // 这两句很重要
         head = capacity - 1;
         tail = size;
         items = newItems;
@@ -170,6 +171,7 @@ public class ArrayDeque<T> implements Deque<T>{
             newItems[i] = this.get(i);
         }
         capacity /= 2;
+        // 这两句很重要
         head = capacity - 1;
         tail = size;
         items = newItems;
@@ -203,5 +205,4 @@ public class ArrayDeque<T> implements Deque<T>{
             System.out.print(get(i) + " ");
         }
     }
-
 }
