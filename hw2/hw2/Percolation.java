@@ -1,5 +1,6 @@
 package hw2;
 
+import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
@@ -103,21 +104,20 @@ public class Percolation {
     }
 
     // test client (optional)
-//    public static void main(String[] args) {
-//        int n = 100;
-//        Percolation p = new Percolation(n);
-//        for (int i = 0; i < n; i++) {
-//            for (int j = 0; j < n; j++) {
-//                if (StdRandom.bernoulli(0.59)) {
-//                    p.open(i, j);
-//                }
-//            }
-//        }
-//        if (p.percolates()) {
-//            System.out.println("yes");
-//        }
-//        else {
-//            System.out.println("no");
-//        }
-//    }
+    public static void main(String[] args) {
+        int n = 100;
+        Percolation p = new Percolation(n);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (StdRandom.bernoulli(0.59)) {
+                    p.open(i, j);
+                }
+            }
+        }
+        if (p.percolates()) {
+            System.out.println("yes");
+        } else {
+            System.out.println("no");
+        }
+    }
 }
